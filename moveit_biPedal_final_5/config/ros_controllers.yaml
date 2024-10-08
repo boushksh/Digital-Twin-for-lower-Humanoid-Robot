@@ -1,0 +1,56 @@
+left_leg_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - j_left_hip
+    - j_left_upper_leg
+    - j_left_lower_leg
+    - j_left_foot
+  gains:
+    j_left_hip:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j_left_upper_leg:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j_left_lower_leg:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j_left_foot:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+right_leg_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - j_right_hip
+    - j_right_upper_leg
+    - j_right_lower_leg
+    - j_right_foot
+  gains:
+    j_right_hip:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j_right_upper_leg:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j_right_lower_leg:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    j_right_foot:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

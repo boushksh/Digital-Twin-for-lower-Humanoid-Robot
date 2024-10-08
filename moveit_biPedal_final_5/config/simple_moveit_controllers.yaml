@@ -1,0 +1,19 @@
+controller_list:
+  - name: left_leg_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - j_left_hip
+      - j_left_upper_leg
+      - j_left_lower_leg
+      - j_left_foot
+  - name: right_leg_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - j_right_hip
+      - j_right_upper_leg
+      - j_right_lower_leg
+      - j_right_foot

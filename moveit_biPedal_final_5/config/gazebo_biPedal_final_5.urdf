@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="biPedal_final_5">
+    <!-- <link name="world"/>
+ <joint name="base_joint" type="fixed">
+	<parent link="world"/>
+	<child link="base_link"/>
+	<origin xyz="0.0 0.0 0" rpy="0 0 0" /> 
+	</joint>   -->
+    <link name="dummy" />
+    <joint name="base_joint" type="fixed">
+        <parent link="dummy" />
+        <child link="base_link" />
+        <origin xyz="0.0 0.0 0" rpy="0 0 0" />
+    </joint>
+    <link name="base_link">
+        <inertial>
+            <origin xyz="-0.0010273 0.018266 -0.1569" rpy="0 0 0" />
+            <mass value="1.1358" />
+            <inertia ixx="0.021608" ixy="-3.5408E-05" ixz="-0.00019873" iyy="0.027846" iyz="-0.00035485" izz="0.0083965" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/base_link.STL" />
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.6</mu>
+                        <!-- Friction coefficient -->
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </link>
+    <link name="right_hip">
+        <inertial>
+            <origin xyz="0.001627 0.0087487 0.061287" rpy="0 0 0" />
+            <mass value="0.064204" />
+            <inertia ixx="6.1159E-05" ixy="2.5695E-07" ixz="3.6625E-08" iyy="4.0608E-05" iyz="8.8565E-06" izz="2.6186E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/right_hip.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/right_hip.STL" />
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.6</mu>
+                        <!-- Friction coefficient -->
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </link>
+    <joint name="j_right_hip" type="revolute">
+        <origin xyz="-0.066 -0.022 -0.078" rpy="-1.5708 0 0" />
+        <parent link="base_link" />
+        <child link="right_hip" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-1.6" upper="1" effort="400" velocity="10.0" />
+        <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-1.50" soft_upper_limit="0.9" />
+    </joint>
+    <link name="right_upper_leg">
+        <inertial>
+            <origin xyz="-0.092457 -0.0048929 0.017229" rpy="0 0 0" />
+            <mass value="0.077179" />
+            <inertia ixx="1.4779E-05" ixy="-1.2213E-05" ixz="1.1944E-05" iyy="0.00024247" iyz="6.4617E-07" izz="0.00024844" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/right_upper_leg.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/right_upper_leg.STL" />
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.6</mu>
+                        <!-- Friction coefficient -->
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </link>
+    <joint name="j_right_upper_leg" type="revolute">
+        <origin xyz="-0.014868 0.039776 0.044941" rpy="1.5708 0 -1.5491" />
+        <parent link="right_hip" />
+        <child link="right_upper_leg" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.6" upper="1.6" effort="400" velocity="10.0" />
+        <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-1.50" soft_upper_limit="1.5" />
+    </joint>
+    <link name="right_lower_leg">
+        <inertial>
+            <origin xyz="-0.077074 -0.00038901 0.0048477" rpy="0 0 0" />
+            <mass value="0.055845" />
+            <inertia ixx="3.4961E-06" ixy="-9.9339E-07" ixz="3.0201E-06" iyy="0.00019669" iyz="1.5552E-08" izz="0.00019764" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/right_lower_leg.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/right_lower_leg.STL" />
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.6</mu>
+                        <!-- Friction coefficient -->
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </link>
+    <joint name="j_right_lower_leg" type="revolute">
+        <origin xyz="-0.19972 -0.010625 0.03745" rpy="0 0 0" />
+        <parent link="right_upper_leg" />
+        <child link="right_lower_leg" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-1.6" upper="1.6" effort="400" velocity="10.0" />
+        <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-1.50" soft_upper_limit="1.5" />
+    </joint>
+    <link name="right_foot">
+        <inertial>
+            <origin xyz="-0.012219 0.00036394 -0.007" rpy="0 0 0" />
+            <mass value="0.10922" />
+            <inertia ixx="0.00017326" ixy="-2.6256E-06" ixz="-1.2838E-13" iyy="8.5184E-05" iyz="-2.0234E-13" izz="9.1525E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/right_foot.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/right_foot.STL" />
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.6</mu>
+                        <!-- Friction coefficient -->
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </link>
+    <joint name="j_right_foot" type="revolute">
+        <origin xyz="-0.2 -0.0010283 0.01495" rpy="0 0 0" />
+        <parent link="right_lower_leg" />
+        <child link="right_foot" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-0.9" upper="0.9" effort="400" velocity="10.0" />
+        <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-0.8" soft_upper_limit="0.8" />
+    </joint>
+    <link name="left_hip">
+        <inertial>
+            <origin xyz="-0.0018171 -0.0087118 -0.061287" rpy="0 0 0" />
+            <mass value="0.064206" />
+            <inertia ixx="6.1163E-05" ixy="-1.8717E-07" ixz="2.2786E-07" iyy="4.0603E-05" iyz="8.8542E-06" izz="2.6181E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/left_hip.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/left_hip.STL" />
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.6</mu>
+                        <!-- Friction coefficient -->
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </link>
+    <joint name="j_left_hip" type="revolute">
+        <origin xyz="0.066 -0.022 -0.078" rpy="1.5708 0 0" />
+        <parent link="base_link" />
+        <child link="left_hip" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1" upper="1.6" effort="500" velocity="10.0" />
+        <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-0.9" soft_upper_limit="1.5" />
+    </joint>
+    <link name="left_upper_leg">
+        <inertial>
+            <origin xyz="0.092502 0.0039896 -0.016779" rpy="0 0 0" />
+            <mass value="0.077178" />
+            <inertia ixx="1.4537E-05" ixy="-9.7289E-06" ixz="1.195E-05" iyy="0.0002427" iyz="5.0113E-07" izz="0.00024844" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/left_upper_leg.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/left_upper_leg.STL" />
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.6</mu>
+                        <!-- Friction coefficient -->
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </link>
+    <joint name="j_left_upper_leg" type="revolute">
+        <origin xyz="0.014005 -0.040088 -0.044941" rpy="1.5708 0 -1.5707" />
+        <parent link="left_hip" />
+        <child link="left_upper_leg" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-1.6" upper="1.6" effort="400" velocity="10.0" />
+        <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-1.50" soft_upper_limit="1.5" />
+    </joint>
+    <link name="left_lower_leg">
+        <inertial>
+            <origin xyz="0.07707 0.00090356 -0.0048477" rpy="0 0 0" />
+            <mass value="0.055845" />
+            <inertia ixx="3.5171E-06" ixy="-2.2465E-06" ixz="3.02E-06" iyy="0.00019667" iyz="3.5098E-08" izz="0.00019764" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/left_lower_leg.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/left_lower_leg.STL" />
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.6</mu>
+                        <!-- Friction coefficient -->
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </link>
+    <joint name="j_left_lower_leg" type="revolute">
+        <origin xyz="0.19982 0.0085618 -0.037" rpy="0 0 0" />
+        <parent link="left_upper_leg" />
+        <child link="left_lower_leg" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-1.6" upper="1" effort="400" velocity="10.0" />
+        <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-1.50" soft_upper_limit="0.9" />
+    </joint>
+    <link name="left_foot">
+        <inertial>
+            <origin xyz="0.012224 -6.0396E-05 -0.007" rpy="0 0 0" />
+            <mass value="0.10922" />
+            <inertia ixx="0.00017333" ixy="-4.3592E-07" ixz="-8.2259E-14" iyy="8.5108E-05" iyz="6.2351E-14" izz="9.1525E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/left_foot.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://biPedal_final_5/meshes/left_foot.STL" />
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.6</mu>
+                        <!-- Friction coefficient -->
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+    </link>
+    <joint name="j_left_foot" type="revolute">
+        <origin xyz="0.19999 0.0023257 -0.00095" rpy="0 0 0" />
+        <parent link="left_lower_leg" />
+        <child link="left_foot" />
+        <axis xyz="0 0 1" />
+        <limit lower="-0.9" upper="0.9" effort="400" velocity="10.0" />
+        <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-0.8" soft_upper_limit="0.8" />
+    </joint>
+    <!--______transmission tags ________-->
+    <transmission name="right_hip_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j_right_hip">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_hip_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="right_upper_leg_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j_right_upper_leg">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_upper_leg_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="right_lower_leg_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j_right_lower_leg">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_lower_leg_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="right_foot_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j_right_foot">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_foot_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="left_hip_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j_left_hip">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_hip_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="left_upper_leg_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j_left_upper_leg">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_upper_leg_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="left_lower_leg_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j_left_lower_leg">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_lower_leg_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="left_foot_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j_left_foot">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_foot_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!-- ___self collission tag for each  link____ -->
+    <gazebo reference="base_link">
+        <selfCollide>true</selfCollide>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    <gazebo reference="right_hip">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="right_upper_leg">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="right_lower_leg">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="right_foot">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="left_hip">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="left_upper_leg">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="left_lower_leg">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="left_foot">
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <!-- _____________control tag______________ -->
+    <gazebo>
+        <plugin name="control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+</robot>
+

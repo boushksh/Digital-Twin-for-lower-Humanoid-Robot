@@ -1,0 +1,76 @@
+left_leg_position_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [j_left_hip, j_left_upper_leg, j_left_lower_leg, j_left_foot]
+  gains:
+    j_left_hip: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_left_upper_leg: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_left_lower_leg: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_left_foot: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+  constraints:
+    j_left_hip:
+      goal: 0.1
+      trajectory: 0.1
+    j_left_upper_leg:
+      goal: 0.1
+      trajectory: 0.1
+    j_left_lower_leg:
+      goal: 0.1
+      trajectory: 0.1
+    j_left_foot:
+      goal: 0.1
+      trajectory: 0.1
+
+right_leg_position_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [j_right_hip, j_right_upper_leg, j_right_lower_leg, j_right_foot]
+  gains:
+    j_right_hip: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_right_upper_leg: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_right_lower_leg: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_right_foot: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+  constraints:
+    j_right_hip:
+      goal: 0.1
+      trajectory: 0.1
+    j_right_upper_leg:
+      goal: 0.1
+      trajectory: 0.1
+    j_right_lower_leg:
+      goal: 0.1
+      trajectory: 0.1
+    j_right_foot:
+      goal: 0.1
+      trajectory: 0.1
+
+left_leg_velocity_controller:
+  type: "velocity_controllers/JointTrajectoryController"
+  joints: [j_left_hip, j_left_upper_leg, j_left_lower_leg, j_left_foot]
+  gains:
+    j_right_hip: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_right_upper_leg: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_right_lower_leg: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_right_foot: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+
+right_leg_velocity_controller:
+  type: "velocity_controllers/JointTrajectoryController"
+  joints: [j_right_hip, j_right_upper_leg, j_right_lower_leg, j_right_foot]
+  gains:
+    j_right_hip: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_right_upper_leg: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_right_lower_leg: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+    j_right_foot: {p: 25, i: 0.9, d: 0.0, i_clamp: 1}
+
+gazebo_ros_control/pid_gains:
+  j_left_hip: {p: 25, i: 0.9, d: 0.00}
+  j_left_upper_leg: {p: 25, i: 0.9, d: 0.00}
+  j_left_lower_leg: {p: 25, i: 0.9, d: 0.00}
+  j_left_foot: {p: 25, i: 0.9, d: 0.00}
+  j_right_hip: {p: 25, i: 0.9, d: 0.00}
+  j_right_upper_leg: {p: 25, i: 0.9, d: 0.00}
+  j_right_lower_leg: {p: 25, i: 0.9, d: 0.00}
+  j_right_foot: {p: 25, i: 0.9, d: 0.00}
+
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+
